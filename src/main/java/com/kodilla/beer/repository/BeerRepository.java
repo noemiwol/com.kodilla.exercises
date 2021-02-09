@@ -5,7 +5,7 @@ import com.kodilla.beer.domain.Beer;
 import java.util.List;
 
 public interface BeerRepository {
-    List<Beer> findAll();
-    void save(Beer beer);
-    void deleteById(Long id);
+    List<Beer> m1();
+    void m2(Beer beer);
+    void m3(Long id);
 }

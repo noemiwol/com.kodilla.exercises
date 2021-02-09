@@ -11,18 +11,18 @@ public class BeerServiceImpl implements BeerService{
 
     @Override
     public List<Beer> m1() {
-        return repository.findAll();
+        return repository.m1();
     }
 
     @Override
     public void m2(Beer beer) {
-        repository.save(beer);
+        repository.m2(beer);
 
     }
 
     @Override
     public void m3(Long id) {
-        repository.deleteById(id);
+        repository.m3(id);
 
     }
 }

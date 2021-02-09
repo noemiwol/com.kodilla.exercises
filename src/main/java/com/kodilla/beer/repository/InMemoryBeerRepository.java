@@ -9,17 +9,17 @@ public class InMemoryBeerRepository implements BeerRepository{
     private List<Beer> beers= new ArrayList<>();
 
     @Override
-    public List<Beer> findAll() {
+    public List<Beer> m1() {
         return null;
     }
 
     @Override
-    public void save(Beer beer) {
+    public void m2(Beer beer) {
 
     }
 
     @Override
-    public void deleteById(Long id) {
+    public void m3(Long id) {
 
     }
 }
