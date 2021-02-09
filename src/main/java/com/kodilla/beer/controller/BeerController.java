@@ -16,12 +16,12 @@ class BeerController {
     private final BeerService service;
 
     @GetMapping
-    public List<BeerDto> getBooks() {
+    public List<BeerDto> getBeers() {
         return BeerMapper.toBeerDtoList(service.m1());
     }
 
     @PostMapping
-    public void createBeer(@RequestBody BeerDto beerDto) {
+    public void addBeer(@RequestBody BeerDto beerDto) {
         service.m2(BeerMapper.toBeer(beerDto));
     }
 
