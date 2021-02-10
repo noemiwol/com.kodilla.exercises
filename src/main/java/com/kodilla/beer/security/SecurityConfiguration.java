@@ -20,7 +20,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
 
         http.authorizeRequests()
-                .mvcMatchers(HttpMethod.GET, "/beer/**")
+                .mvcMatchers(HttpMethod.GET, "/com/kodilla/**")
                 .hasAnyRole("R1", "R2", "R3")
                 .mvcMatchers(HttpMethod.POST, "/**")
                 .hasAnyRole("R2", "R3")

@@ -10,6 +10,10 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/birthday app" />
+            <option value="$PROJECT_DIR$/birthdayApp" />
+            <option value="$PROJECT_DIR$/com.kodilla.exercises.BeerApplication" />
+            <option value="$PROJECT_DIR$/springIntegration" />
           </set>
         </option>
       </GradleProjectSettings>

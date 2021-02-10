@@ -11,8 +11,8 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/beer/")
-@SessionAttributes("beer")
+@RequestMapping("/com/kodilla/")
+@SessionAttributes("com/kodilla")
 class BeerController {
 
     @Autowired
