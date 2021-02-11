@@ -20,8 +20,8 @@ public class DataChangesMapper extends BeanWrapperFieldSetMapper<UserDateOfBirth
         UserDateOfBirth userDateOfBirth = new UserDateOfBirth();
         userDateOfBirth.setName(fs.readString("name"));
         userDateOfBirth.setSurName(fs.readString("surName"));
-        String date = fs.readString("dateOfBirth");
-        userDateOfBirth.setDateOfBirth(LocalDate.parse(date, formatter));
+        String date = fs.readString("birthDate");
+        userDateOfBirth.setBirthDate(LocalDate.parse(date, formatter));
         return userDateOfBirth;
     }
 

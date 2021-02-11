@@ -14,7 +14,6 @@ import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.FlatFileItemWriter;
-import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.BeanWrapperFieldExtractor;
 import org.springframework.batch.item.file.transform.DelimitedLineAggregator;
@@ -41,9 +40,6 @@ public class BatchConfiguration {
 
         DelimitedLineTokenizer tokenizer = new DelimitedLineTokenizer();
         tokenizer.setNames("name", "surName", "birthDate");
-
-        BeanWrapperFieldSetMapper<UserDateOfBirth> mapper = new BeanWrapperFieldSetMapper<>();
-        mapper.setTargetType(UserDateOfBirth.class);
 
         DefaultLineMapper<UserDateOfBirth> lineMapper = new DefaultLineMapper<>();
         lineMapper.setLineTokenizer(tokenizer);

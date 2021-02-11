@@ -13,6 +13,6 @@ import java.time.LocalDate;
 public class UserDateOfBirth {
     private String name;
     private String surName;
-    private LocalDate dateOfBirth;
+    private LocalDate birthDate;
 
 }

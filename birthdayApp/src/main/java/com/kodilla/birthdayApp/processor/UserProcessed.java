@@ -17,7 +17,7 @@ public class UserProcessed implements ItemProcessor<UserDateOfBirth, UserAge> {
             return new UserAge(
                     item.getName(),
                     item.getSurName(),
-                    ChronoUnit.YEARS.between(item.getDateOfBirth(), LocalDate.now()));
+                    ChronoUnit.YEARS.between(item.getBirthDate(), LocalDate.now()));
 
     }
 }
