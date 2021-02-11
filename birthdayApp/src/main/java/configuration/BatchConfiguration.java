@@ -1,3 +1,8 @@
+package configuration;
+
+import domian.UserAge;
+import domian.UserDateOfBirth;
+import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -20,61 +25,60 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 
 @Configuration
+@RequiredArgsConstructor
 @EnableBatchProcessing
 public class BatchConfiguration {
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
+    private final DataChangesMapper dataChangesMapper;
 
-    BatchConfiguration(JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
-        this.jobBuilderFactory = jobBuilderFactory;
-        this.stepBuilderFactory = stepBuilderFactory;
-    }
+
 
     @Bean
-    FlatFileItemReader<User> reader() {
-        FlatFileItemReader<User> reader = new FlatFileItemReader<>();
+    FlatFileItemReader<UserDateOfBirth> reader() {
+        FlatFileItemReader<UserDateOfBirth> reader = new FlatFileItemReader<>();
         reader.setResource(new ClassPathResource("input.csv"));
 
         DelimitedLineTokenizer tokenizer = new DelimitedLineTokenizer();
-        tokenizer.setNames("name", "surname", "birthDate");
+        tokenizer.setNames("name", "surName", "birthDate");
 
-        BeanWrapperFieldSetMapper<User> mapper = new BeanWrapperFieldSetMapper<>();
-        mapper.setTargetType(User.class);
+        BeanWrapperFieldSetMapper<UserDateOfBirth> mapper = new BeanWrapperFieldSetMapper<>();
+        mapper.setTargetType(UserDateOfBirth.class);
 
-        DefaultLineMapper<User> lineMapper = new DefaultLineMapper<>();
+        DefaultLineMapper<UserDateOfBirth> lineMapper = new DefaultLineMapper<>();
         lineMapper.setLineTokenizer(tokenizer);
-        lineMapper.setFieldSetMapper(mapper);
+        lineMapper.setFieldSetMapper(dataChangesMapper);
 
         reader.setLineMapper(lineMapper);
         return reader;
     }
 
-    @Bean
-    UserProcessor processor() {
-        return new UserProcessor();
-    }
 
     @Bean
-    FlatFileItemWriter<UserProcessor> writer() {
-        BeanWrapperFieldExtractor<UserProcessor> extractor = new BeanWrapperFieldExtractor<>();
-        extractor.setNames(new String[] {"name", "surname", "dateOfBirth"});
+    FlatFileItemWriter<UserAge> writer() {
+        BeanWrapperFieldExtractor<UserAge> extractor = new BeanWrapperFieldExtractor<>();
+        extractor.setNames(new String[]{"name", "surName", "age"});
 
-        DelimitedLineAggregator<UserProcessor> aggregator = new DelimitedLineAggregator<>();
+        DelimitedLineAggregator<UserAge> aggregator = new DelimitedLineAggregator<>();
         aggregator.setDelimiter(",");
         aggregator.setFieldExtractor(extractor);
 
-        FlatFileItemWriter<UserProcessor> writer = new FlatFileItemWriter<>();
-        writer.setResource(new FileSystemResource("./batch-exercise/output.csv"));
+        FlatFileItemWriter<UserAge> writer = new FlatFileItemWriter<>();
         writer.setShouldDeleteIfExists(true);
         writer.setLineAggregator(aggregator);
+        writer.setResource(new FileSystemResource("ConvertedPersons.csv"));
 
         return writer;
     }
 
     @Bean
-    Step priceChange(ItemReader<User> reader, ItemProcessor<User, UserProcessor> processor, ItemWriter<UserProcessor> writer) {
-        return stepBuilderFactory.get("birthDateChange")
-                .<User, UserProcessor>chunk(100)
+    Step changeDateToAgeStep(
+            ItemReader<UserDateOfBirth> reader,
+            ItemProcessor<UserDateOfBirth, UserAge> processor,
+            ItemWriter<UserAge> writer) {
+
+        return stepBuilderFactory.get("changeDateToAge")
+                .<UserDateOfBirth, UserAge>chunk(100)
                 .reader(reader)
                 .processor(processor)
                 .writer(writer)
@@ -82,12 +86,13 @@ public class BatchConfiguration {
     }
 
     @Bean
-    Job changePriceJob(Step birthDateChange) {
-        return jobBuilderFactory.get("changeBirthDateJob")
+    Job changeDateToAgeJob(Step step) {
+        return jobBuilderFactory.get("changeDateToAge")
                 .incrementer(new RunIdIncrementer())
-                .flow(birthDateChange)
+                .flow(step)
                 .end()
                 .build();
     }
+
 }
 

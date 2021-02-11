@@ -1,4 +1,12 @@
-# Project exclude paths
-/.gradle/
+.gradle
 /build/
-/build/classes/java/main/
+**/out
+**/build
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+*.class
+/out/
