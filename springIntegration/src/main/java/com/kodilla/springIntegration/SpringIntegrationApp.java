@@ -1,9 +1,11 @@
+package com.kodilla.springIntegration;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BirthdayApp {
+public class SpringIntegrationApp {
     public static void main(String[] args) {
-        SpringApplication.run(BirthdayApp.class, args);
+        SpringApplication.run(SpringIntegrationApp.class, args);
     }
 }

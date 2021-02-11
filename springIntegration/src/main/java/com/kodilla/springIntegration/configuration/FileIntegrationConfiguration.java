@@ -1,4 +1,4 @@
-package configuration;
+package com.kodilla.springIntegration.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,15 +7,13 @@ import org.springframework.integration.dsl.IntegrationFlows;
 import org.springframework.integration.dsl.Pollers;
 import org.springframework.integration.file.FileReadingMessageSource;
 import org.springframework.integration.file.FileWritingMessageHandler;
-import transformer.FileTransformer;
+import com.kodilla.springIntegration.transformer.FileTransformer;
 
 import java.io.File;
 
 import static org.springframework.integration.file.support.FileExistsMode.REPLACE;
 @Configuration
 public class FileIntegrationConfiguration {
-    private String pathInput = "C:\\Users\\noemi\\IdeaProjects\\com.kodilla.exercises\\springIntegration\\data\\input";
-    private String pathOutput ="C:\\Users\\noemi\\IdeaProjects\\com.kodilla.exercises\\springIntegration\\data\\output";
 
     @Bean
     IntegrationFlow fileIntegrationFlow(FileReadingMessageSource fileAdapter, FileTransformer transformer, FileWritingMessageHandler outputFileHandler) {
@@ -28,7 +26,7 @@ public class FileIntegrationConfiguration {
     @Bean
     FileReadingMessageSource fileAdapter() {
         FileReadingMessageSource fileSource = new FileReadingMessageSource();
-        fileSource.setDirectory(new File(pathInput));
+        fileSource.setDirectory(new File(FilePathsConstants.pathInput));
         return fileSource;
     }
 
@@ -39,7 +37,7 @@ public class FileIntegrationConfiguration {
 
     @Bean
     FileWritingMessageHandler outputFileAdapter() {
-        File directory = new File(pathOutput);
+        File directory = new File(FilePathsConstants.pathOutput);
         FileWritingMessageHandler handler = new FileWritingMessageHandler(directory);
         handler.setExpectReply(false);
         handler.setAppendNewLine(true);

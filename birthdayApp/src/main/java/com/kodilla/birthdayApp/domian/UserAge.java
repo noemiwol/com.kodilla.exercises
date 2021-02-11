@@ -1,18 +1,14 @@
-package domian;
+package com.kodilla.birthdayApp.domian;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class UserDateOfBirth {
+public class UserAge {
     private String name;
     private String surName;
-    private LocalDate dateOfBirth;
-
+    private long age;
 }

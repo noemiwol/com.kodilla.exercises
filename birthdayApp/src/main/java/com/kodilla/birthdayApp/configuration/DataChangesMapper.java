@@ -1,6 +1,6 @@
-package configuration;
+package com.kodilla.birthdayApp.configuration;
 
-import domian.UserDateOfBirth;
+import com.kodilla.birthdayApp.domian.UserDateOfBirth;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.batch.item.file.transform.FieldSet;
 import org.springframework.stereotype.Component;

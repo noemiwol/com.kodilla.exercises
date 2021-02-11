@@ -1,7 +1,7 @@
-package processor;
+package com.kodilla.birthdayApp.processor;
 
-import domian.UserAge;
-import domian.UserDateOfBirth;
+import com.kodilla.birthdayApp.domian.UserAge;
+import com.kodilla.birthdayApp.domian.UserDateOfBirth;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.stereotype.Component;
 

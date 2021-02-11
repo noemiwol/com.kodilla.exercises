@@ -1,7 +1,7 @@
-package configuration;
+package com.kodilla.birthdayApp.configuration;
 
-import domian.UserAge;
-import domian.UserDateOfBirth;
+import com.kodilla.birthdayApp.domian.UserAge;
+import com.kodilla.birthdayApp.domian.UserDateOfBirth;
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
