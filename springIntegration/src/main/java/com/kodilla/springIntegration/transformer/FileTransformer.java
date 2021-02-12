@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 
 public class FileTransformer {
 
-    public void  transformFile() throws IOException {
+    public String transformFile() throws IOException, NullPointerException {
         StringBuilder result = new StringBuilder();
         boolean fileExist = new File(FilePathsConstants.pathOutput).isFile();
         if (fileExist) {
@@ -17,8 +17,8 @@ public class FileTransformer {
                     .forEach(line -> result.append(line).append("\n"));
         }
         File[] files = new File(FilePathsConstants.pathInput).listFiles();
-        if(files == null){
-            return;
+        if(files == null) {
+            throw new NullPointerException();
         }
 
         for (File file : files) {
@@ -26,6 +26,6 @@ public class FileTransformer {
                 result.append(file.getName()).append("\n");
             }
         }
-
+        return result.toString().strip();
     }
 }
