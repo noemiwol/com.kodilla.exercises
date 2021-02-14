@@ -13,6 +13,8 @@
             <option value="$PROJECT_DIR$/beanLifeCycle" />
             <option value="$PROJECT_DIR$/birthdayApp" />
             <option value="$PROJECT_DIR$/com.kodilla.exercises.BeerApplication" />
+            <option value="$PROJECT_DIR$/simpleCalculator" />
+            <option value="$PROJECT_DIR$/springEvents" />
             <option value="$PROJECT_DIR$/springIntegration" />
           </set>
         </option>

@@ -3,4 +3,6 @@ include 'com.kodilla.exercises.BeerApplication'
 include 'birthdayApp'
 include 'springIntegration'
 include 'beanLifeCycle'
+include 'springEvents'
+include 'simpleCalculator'
 
