@@ -5,6 +5,7 @@ import com.kodilla.springIntegration.configuration.FilePathsConstants;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.NotDirectoryException;
 import java.nio.file.Paths;
 
 public class FileTransformer {
@@ -18,7 +19,7 @@ public class FileTransformer {
         }
         File[] files = new File(FilePathsConstants.pathInput).listFiles();
         if(files == null) {
-            throw new NullPointerException();
+            throw new NotDirectoryException("There was I/O error or path points to a file." +" \n path:"+FilePathsConstants.pathInput);
         }
 
         for (File file : files) {
