@@ -2,4 +2,5 @@ rootProject.name = 'com.kodilla.exercises'
 include 'com.kodilla.exercises.BeerApplication'
 include 'birthdayApp'
 include 'springIntegration'
+include 'beanLifeCycle'
 

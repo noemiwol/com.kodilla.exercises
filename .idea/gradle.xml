@@ -10,6 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/beanLifeCycle" />
             <option value="$PROJECT_DIR$/birthdayApp" />
             <option value="$PROJECT_DIR$/com.kodilla.exercises.BeerApplication" />
             <option value="$PROJECT_DIR$/springIntegration" />
