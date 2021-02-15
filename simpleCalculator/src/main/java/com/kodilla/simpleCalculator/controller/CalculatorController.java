@@ -19,7 +19,7 @@ public class CalculatorController  implements ApplicationEventPublisherAware {
         System.out.println("The first number was introduced: " + calculatorDto.getFirstNumber());
         System.out.println("The second number was introduced: " + calculatorDto.getSecondNumber());
         publisher.publishEvent(
-                 new CalculationsMade(
+                new CalculationsMade(
                         this,
                         calculatorDto.getFirstNumber(),
                         calculatorDto.getSecondNumber()));
