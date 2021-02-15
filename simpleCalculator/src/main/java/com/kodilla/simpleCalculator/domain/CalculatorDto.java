@@ -18,20 +18,4 @@ public class CalculatorDto {
         return secondNumber;
     }
 
-    public double addition(){
-
-        return firstNumber + secondNumber;
-    }
-    public double subtraction(){
-
-        return firstNumber - secondNumber;
-    }
-    public double multiplication(){
-
-        return firstNumber * secondNumber;
-    }
-    public double division(){
-
-        return firstNumber / secondNumber;
-    }
 }
