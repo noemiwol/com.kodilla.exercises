@@ -29,7 +29,7 @@ public class CalculatorController  implements ApplicationEventPublisherAware {
         System.out.println("The second number was introduced: " + calculationsMade.getSecondNumber());*/
         publisher.publishEvent(
                 new CalculationsMade(
-                        this, methodNames, number1, number2, result));
+                        this, MethodNames.ADDITION, number1, number2, result));
     return result;
     }
     @GetMapping(path = "cal/division")
@@ -39,7 +39,7 @@ public class CalculatorController  implements ApplicationEventPublisherAware {
         System.out.println("The second number was introduced: " + calculationsMade.getSecondNumber());*/
         publisher.publishEvent(
                 new CalculationsMade(
-                        this,methodNames, number1, number2, result));
+                        this,MethodNames.DIVISION, number1, number2, result));
         return result;
     }
     @GetMapping(path = "cal/subtraction")
@@ -49,7 +49,7 @@ public class CalculatorController  implements ApplicationEventPublisherAware {
         System.out.println("The second number was introduced: " + calculationsMade.getSecondNumber());*/
         publisher.publishEvent(
                 new CalculationsMade(
-                        this, methodNames, number1, number2, result));
+                        this, MethodNames.SUBTRACTION, number1, number2, result));
         return result;
     }
     @GetMapping(path = "cal/multiplication")
@@ -59,7 +59,7 @@ public class CalculatorController  implements ApplicationEventPublisherAware {
         System.out.println("The second number was introduced: " + calculationsMade.getSecondNumber());*/
         publisher.publishEvent(
                 new CalculationsMade(
-                        this, methodNames, number1, number2, result));
+                        this, MethodNames.MULTIPLICATION, number1, number2, result));
         return result;
     }
     @Override
