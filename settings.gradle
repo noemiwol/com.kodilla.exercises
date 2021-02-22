@@ -5,4 +5,5 @@ include 'springIntegration'
 include 'beanLifeCycle'
 include 'springEvents'
 include 'simpleCalculator'
+include 'kodilla-byte-manipulation'
 
