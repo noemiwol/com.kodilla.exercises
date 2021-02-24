@@ -22,4 +22,9 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="11" />
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="com.kodilla.exercises.kodilla-byte-buddy.kodilla-agent.main" options="--add-exports jdk.internal.vm.compiler/org.graalvm.compiler.lir.asm=ALL-UNNAMED" />
+    </option>
+  </component>
 </project>

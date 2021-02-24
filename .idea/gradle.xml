@@ -13,6 +13,10 @@
             <option value="$PROJECT_DIR$/beanLifeCycle" />
             <option value="$PROJECT_DIR$/birthdayApp" />
             <option value="$PROJECT_DIR$/com.kodilla.exercises.BeerApplication" />
+            <option value="$PROJECT_DIR$/kodilla-agent-exercises" />
+            <option value="$PROJECT_DIR$/kodilla-byte-buddy" />
+            <option value="$PROJECT_DIR$/kodilla-byte-buddy-and-agent-exercises" />
+            <option value="$PROJECT_DIR$/kodilla-byte-buddy/kodilla-agent" />
             <option value="$PROJECT_DIR$/kodilla-byte-manipulation" />
             <option value="$PROJECT_DIR$/simpleCalculator" />
             <option value="$PROJECT_DIR$/springEvents" />
