@@ -1,6 +1,6 @@
 package com.kodilla.jpa.domain;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -19,8 +19,8 @@ public class Users {
     @JoinColumn(name = "task_id")
     private Task task;
 
-    @OneToMany(targetEntity = Users.class, mappedBy = "users")
-    private List<Users> usersList = new ArrayList<>();
+    @OneToMany(targetEntity = Task.class, mappedBy = "task")
+    private List<Task> tasks = new ArrayList<>();
     public Users() {
     }
 
