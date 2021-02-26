@@ -1,10 +1,6 @@
 package com.kodilla.jpa.domain;
 
-import javax.persistence.Id;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Users {
@@ -19,8 +15,7 @@ public class Users {
     @JoinColumn(name = "task_id")
     private Task task;
 
-    @OneToMany(targetEntity = Task.class, mappedBy = "task")
-    private List<Task> tasks = new ArrayList<>();
+
     public Users() {
     }
 
@@ -46,4 +41,5 @@ public class Users {
     public Long getId() {
         return id;
     }
+
 }
