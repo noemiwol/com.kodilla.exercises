@@ -13,4 +13,5 @@ include 'kodilla-byte-buddy-and-agent-exercises'
 include 'kodilla-agent-exercises'
 include 'kodilla-converter'
 include 'spring-messaging'
+include 'spring-webflux'
 
