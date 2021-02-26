@@ -12,4 +12,5 @@ findProject(':kodilla-byte-buddy:kodilla-agent')?.name = 'kodilla-agent'
 include 'kodilla-byte-buddy-and-agent-exercises'
 include 'kodilla-agent-exercises'
 include 'kodilla-converter'
+include 'spring-messaging'
 

@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/kodilla-byte-manipulation" />
             <option value="$PROJECT_DIR$/kodilla-converter" />
             <option value="$PROJECT_DIR$/simpleCalculator" />
+            <option value="$PROJECT_DIR$/spring-messaging" />
             <option value="$PROJECT_DIR$/springEvents" />
             <option value="$PROJECT_DIR$/springIntegration" />
           </set>
