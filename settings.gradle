@@ -15,4 +15,5 @@ include 'kodilla-converter'
 include 'spring-messaging'
 include 'spring-webflux'
 include 'proxy'
+include 'spring-jpa'
 
