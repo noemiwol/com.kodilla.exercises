@@ -1,9 +1,8 @@
 package com.kodilla.jpa.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Task {
@@ -14,6 +13,10 @@ public class Task {
     private String name;
     private String status;
 
+    @OneToMany(targetEntity = Users.class, mappedBy = "user_id")
+    private List<Users> users = new ArrayList<>();
+    @OneToMany(targetEntity = Subtasks.class, mappedBy = "subtask_id")
+    private List<Subtasks> subtask = new ArrayList<>();
 
     public Task() {
     }
@@ -24,6 +27,9 @@ public class Task {
         this.status = status;
     }
 
+    public List<Users> getUsers() {
+        return users;
+    }
 
     public String getName() {
         return name;

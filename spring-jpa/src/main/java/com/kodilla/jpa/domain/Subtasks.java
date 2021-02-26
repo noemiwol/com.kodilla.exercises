@@ -18,6 +18,7 @@ public class Subtasks {
     @OneToMany(targetEntity = Users.class, mappedBy = "user_id")
     private List<Users> users = new ArrayList<>();
 
+
     public Subtasks() {
     }
 
@@ -27,6 +28,7 @@ public class Subtasks {
         this.status = status;
 
     }
+
 
     public List<Users> getUsers() {
         return users;
