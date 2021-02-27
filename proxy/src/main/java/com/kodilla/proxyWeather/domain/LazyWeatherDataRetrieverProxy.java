@@ -1,7 +1,11 @@
-package com.kodilla.proxyWeather.db;
+package com.kodilla.proxyWeather.domain;
+
+import com.kodilla.proxyWeather.db.DbWeatherDataRetriever;
 
 public class LazyWeatherDataRetrieverProxy implements DbWeatherDataRetriever {
     private DbWeatherDataRetriever retriever;
+
+
 
     @Override
     public String getWeather() throws InterruptedException {

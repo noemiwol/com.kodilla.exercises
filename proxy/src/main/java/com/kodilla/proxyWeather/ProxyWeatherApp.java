@@ -1,7 +1,7 @@
 package com.kodilla.proxyWeather;
 
 import com.kodilla.proxyWeather.db.DbWeatherDataRetriever;
-import com.kodilla.proxyWeather.db.LazyWeatherDataRetrieverProxy;
+import com.kodilla.proxyWeather.domain.LazyWeatherDataRetrieverProxy;
 
 import java.util.Random;
 
