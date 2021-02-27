@@ -12,23 +12,30 @@ public class Task {
     private Long id;
     private String name;
     private String status;
+    @ManyToOne
+    @JoinColumn(name = "USERS_ID")
+    private Users users;
 
-    @OneToMany(targetEntity = Users.class, mappedBy = "user_id")
-    private List<Users> users = new ArrayList<>();
-    @OneToMany(targetEntity = Subtasks.class, mappedBy = "subtask_id")
-    private List<Subtasks> subtask = new ArrayList<>();
+    @OneToMany(targetEntity = Subtasks.class, mappedBy = "task")
+    private List<Subtasks> subtaskss = new ArrayList<>();
+
 
     public Task() {
     }
 
-    public Task(Long id, String name, String status) {
+    public Task(Long id, String name, String status, Users users) {
         this.id = id;
         this.name = name;
         this.status = status;
+        this.users = users;
     }
 
-    public List<Users> getUsers() {
+    public Users getUsers() {
         return users;
+    }
+
+    public List<Subtasks> getSubtaskss() {
+        return subtaskss;
     }
 
     public String getName() {
