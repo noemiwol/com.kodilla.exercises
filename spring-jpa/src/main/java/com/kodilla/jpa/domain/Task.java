@@ -12,7 +12,7 @@ public class Task {
     private Long id;
     private String name;
     private String status;
-    @ManyToOne
+    @ManyToMany
     @JoinColumn(name = "USERS_ID")
     private Users users;
 
