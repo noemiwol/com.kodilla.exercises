@@ -5,56 +5,50 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Task {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String status;
+    private String surName;
 
     @ManyToMany
     @JoinTable(
             name = "Task_User",
             joinColumns = { @JoinColumn(name = "task_id") },
             inverseJoinColumns = { @JoinColumn(name = "user_id") })
-    private List<User> users = new ArrayList<>();
+    private List<Task> tasks = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
-            name = "Task_Subtask",
-            joinColumns = { @JoinColumn(name = "task_id") },
-            inverseJoinColumns = { @JoinColumn(name = "subTask_id") })
+            name = "Subtask_User",
+            joinColumns = { @JoinColumn(name = "subTask_id") },
+            inverseJoinColumns = { @JoinColumn(name = "user_id") })
     private List<Subtask> subtasks = new ArrayList<>();
 
-
-    public Task() {
+    public User() {
     }
 
-    public Task(Long id, String name, String status) {
+    public User(Long id, String name, String surName) {
         this.id = id;
         this.name = name;
-        this.status = status;
-    }
-
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public List<Subtask> getSubtasks() {
-        return subtasks;
+        this.surName = surName;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getStatus() {
-        return status;
+    public String getSurName() {
+        return surName;
     }
 
     public Long getId() {
         return id;
     }
 
+    public List<Task> getTasks() { return tasks; }
+
+    public List<Subtask> getSubtasks() { return subtasks; }
 }
