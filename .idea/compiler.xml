@@ -9,7 +9,6 @@
         </processorPath>
         <module name="com.kodilla.exercises.main" />
         <module name="com.kodilla.exercises.springEvents.main" />
-        <module name="com.kodilla.exercises.spring-jpa.main" />
         <module name="com.kodilla.exercises.birthdayApp.main" />
         <module name="com.kodilla.exercises.spring-webflux.main" />
       </profile>

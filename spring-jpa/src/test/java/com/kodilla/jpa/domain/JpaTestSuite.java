@@ -1,12 +1,16 @@
 package com.kodilla.jpa.domain;
 
 
+
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
-import static org.assertj.core.api.Assertions.*;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 class JpaTestSuite {
@@ -16,10 +20,10 @@ class JpaTestSuite {
 
     @Test
     void shouldPersistUser() {
+
         //Given
         EntityManager em = emf.createEntityManager();
-        User kodilla =
-                new User(null, "Kodilla",  "Wrocław");
+        User kodilla = new User(null, "Kodilla",  "Wrocław");
 
         //When
         em.getTransaction().begin();
@@ -29,8 +33,8 @@ class JpaTestSuite {
 
         //Then
         Long key = kodilla.getId();
-        User readCustomer = em.find(User.class, key);
+        User readUser = em.find(User.class, key);
         em.close();
-        assertThat(readCustomer.getName()).isEqualTo(kodilla.getName());
+        assertThat(readUser.getName()).isEqualTo(kodilla.getName());
     }
 }

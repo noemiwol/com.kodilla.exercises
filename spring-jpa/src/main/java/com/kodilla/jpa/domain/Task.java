@@ -13,18 +13,10 @@ public class Task {
     private String name;
     private String status;
 
-    @ManyToMany
-    @JoinTable(
-            name = "Task_User",
-            joinColumns = { @JoinColumn(name = "task_id") },
-            inverseJoinColumns = { @JoinColumn(name = "user_id") })
+    @ManyToMany(mappedBy = "tasks")
     private List<User> users = new ArrayList<>();
 
-    @OneToMany
-    @JoinTable(
-            name = "Task_Subtask",
-            joinColumns = { @JoinColumn(name = "task_id") },
-            inverseJoinColumns = { @JoinColumn(name = "subTask_id") })
+    @OneToMany(targetEntity = Subtask.class, mappedBy = "task")
     private List<Subtask> subtasks = new ArrayList<>();
 
 
@@ -45,16 +37,10 @@ public class Task {
         return subtasks;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
-    public String getStatus() {
-        return status;
-    }
+    public String getStatus() { return status; }
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
 
 }

@@ -16,15 +16,15 @@ public class User {
     @ManyToMany
     @JoinTable(
             name = "Task_User",
-            joinColumns = { @JoinColumn(name = "task_id") },
-            inverseJoinColumns = { @JoinColumn(name = "user_id") })
+            joinColumns = { @JoinColumn(name = "user_id") },
+            inverseJoinColumns = { @JoinColumn(name = "task_id") })
     private List<Task> tasks = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
             name = "Subtask_User",
-            joinColumns = { @JoinColumn(name = "subTask_id") },
-            inverseJoinColumns = { @JoinColumn(name = "user_id") })
+            joinColumns = { @JoinColumn(name = "user_id") },
+            inverseJoinColumns = { @JoinColumn(name = "subTask_id") })
     private List<Subtask> subtasks = new ArrayList<>();
 
     public User() {

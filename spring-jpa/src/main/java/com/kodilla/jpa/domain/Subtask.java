@@ -13,27 +13,21 @@ public class Subtask {
     private String name;
     private String status;
 
-    @ManyToMany
-    @JoinTable(
-            name = "Subtask_User",
-            joinColumns = { @JoinColumn(name = "subTask_id") },
-            inverseJoinColumns = { @JoinColumn(name = "user_id") })
+    @ManyToMany(mappedBy = "subtasks")
     private List<User> users = new ArrayList<>();
 
-    @ManyToMany
-    @JoinTable(
-            name = "Task_Subtask",
-            joinColumns = { @JoinColumn(name = "subTask_id") },
-            inverseJoinColumns = { @JoinColumn(name = "task_id") })
-    private List<Task> tasks = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name ="task_id")
+    private Task task;
 
     public Subtask() {
     }
 
-    public Subtask(Long id, String name, String status) {
+    public Subtask(Long id, String name, String status, Task task) {
         this.id = id;
         this.name = name;
         this.status = status;
+        this.task = task;
     }
 
     public Long getId() {
@@ -52,7 +46,5 @@ public class Subtask {
         return users;
     }
 
-    public List<Task> getTasks() {
-        return tasks;
-    }
+    public Task getTask() { return task; }
 }
