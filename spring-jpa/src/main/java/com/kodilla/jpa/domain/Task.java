@@ -20,7 +20,7 @@ public class Task {
             inverseJoinColumns = { @JoinColumn(name = "user_id") })
     private List<User> users = new ArrayList<>();
 
-    @ManyToMany
+    @OneToMany
     @JoinTable(
             name = "Task_Subtask",
             joinColumns = { @JoinColumn(name = "task_id") },
